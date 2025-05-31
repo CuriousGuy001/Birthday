@@ -95,9 +95,7 @@
 
   <!-- Decorations -->
   <div class="decor">
-    <img class="balloons" src="a.jpeg" alt="balloon">
-    <img class="balloons" src="d.jpg" alt="balloon">
-    <img class="balloons" src="b.jpeg" alt="balloon">
+    <img class="balloons" src="a.jpg" alt="balloon">
   </div>
 
   <h1>Happy Birthday, Khushboo! 🎂🎈💐</h1>
@@ -129,12 +127,32 @@
     <textarea name="message" placeholder="Write your message here..." required></textarea><br>
     <button class="submit-btn" type="submit">Send Message</button>
   </form>
-
+<!-- Hidden audio -->
+<audio id="send-audio">
+  <source src="send.mp3" type="audio/mpeg">
+  Your browser does not support the audio element.
+</audio>
   <script>
     function startSurprise() {
       document.getElementById('surprise-message').style.display = 'block';
       document.getElementById('photos').style.display = 'flex';
     }
+    <script>
+  document.getElementById("birthday-form").addEventListener("submit", function(event) {
+    event.preventDefault(); // stop default submission
+
+    const audio = document.getElementById("send-audio");
+
+    // Play the audio
+    audio.play();
+
+    // Submit the form after audio ends
+    audio.onended = function() {
+      event.target.submit();
+    };
+  });
+</script>
+
   </script>
 </body>
 </html>
