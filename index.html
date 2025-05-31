@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Happy Birthday Khushboo 🎂🎉</title>
   <style>
     body {
@@ -87,16 +87,9 @@
 </head>
 <body>
 
-  <!-- Background Birthday Song -->
-  <audio autoplay loop>
-    <source src="song.mp3" type="audio/mpeg">
-    Your browser does not support the audio element.
-  </audio>
-
   <!-- Decorations -->
   <div class="decor">
-    <img class="balloons" src="d.jpg" alt="balloon">
-    
+    <img class="balloons" src="d.jpg" alt="balloon" />
   </div>
 
   <h1>Happy Birthday, Khushboo! 🎂🎈💐</h1>
@@ -104,57 +97,56 @@
   <button class="surprise-btn" onclick="startSurprise()">Click Here for Wishes 💌</button>
 
   <div id="surprise-message" class="message">
-    <p>My Love,
-    <br><br>
-    Today is the day the world was blessed with your beautiful presence. 🌍✨<br>
-    Your laughter is music, your smile lights up my soul, and your love is the most precious gift of all.<br><br>
-    I can't light real candles on this screen, but know that my heart glows for you every moment. 🕯️❤️<br>
-    You're my best memory, my truest feeling, and the most beautiful part of my life.<br><br>
-    Happy Birthday, my forever sunshine! ☀️💖</p>
+    <p>My Love,<br><br>
+      Today is the day the world was blessed with your beautiful presence. 🌍✨<br>
+      Your laughter is music, your smile lights up my soul, and your love is the most precious gift of all.<br><br>
+      I can't light real candles on this screen, but know that my heart glows for you every moment. 🕯️❤️<br>
+      You're my best memory, my truest feeling, and the most beautiful part of my life.<br><br>
+      Happy Birthday, my forever sunshine! ☀️💖
+    </p>
   </div>
 
   <div class="photo-gallery" id="photos">
-    <img src="1.jpg" alt="Pic 2">
-    <img src="2.jpg" alt="Pic 3">
-    <img src="3.jpg" alt="Pic 4">
-    <img src="4.jpg" alt="Pic 6">
+    <img src="1.jpg" alt="Pic 1">
+    <img src="2.jpg" alt="Pic 2">
+    <img src="3.jpg" alt="Pic 3">
+    <img src="4.jpg" alt="Pic 4">
     <img src="5.jpg" alt="Pic 5">
-    <img src="6.jpg" alt="Pic 1">
-
+    <img src="6.jpg" alt="Pic 6">
   </div>
 
-  <form action="https://formspree.io/f/mldbbeej" method="POST">
+  <!-- Form with ID -->
+  <form id="birthday-form" action="https://formspree.io/f/mldbbeej" method="POST">
     <h2 style="color: #4b0082;">Send Your Message to Me 💌</h2>
     <textarea name="message" placeholder="Write your message here..." required></textarea><br>
     <button class="submit-btn" type="submit">Send Message</button>
   </form>
- <!-- Hidden audio -->
-<audio id="send-audio">
-  <source src="song.mp3" type="audio/mpeg">
-  Your browser does not support the audio element.
-</audio>
+
+  <!-- Hidden audio -->
+  <audio id="send-audio">
+    <source src="song.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+
+  <!-- Script Section -->
   <script>
     function startSurprise() {
       document.getElementById('surprise-message').style.display = 'block';
       document.getElementById('photos').style.display = 'flex';
     }
 
-    <script>
-  document.getElementById("birthday-form").addEventListener("submit", function(event) {
-    event.preventDefault(); // stop default submission
-
+    const form = document.getElementById("birthday-form");
     const audio = document.getElementById("send-audio");
 
-    // Play the audio
-    audio.play();
+    form.addEventListener("submit", function(event) {
+      event.preventDefault(); // prevent default form submission
 
-    // Submit the form after audio ends
-    audio.onended = function() {
-      event.target.submit();
-    };
-  });
-</script>
+      audio.play(); // play song
 
+      audio.onended = function() {
+        form.submit(); // now submit form
+      };
+    });
   </script>
 </body>
 </html>
