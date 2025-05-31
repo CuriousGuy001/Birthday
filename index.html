@@ -23,13 +23,10 @@
       width: 100%;
       margin: 20px auto;
     }
-   .balloon-img {
-  width: 80px;        /* Set a fixed width */
-  height: 80px;       /* Set a fixed height */
-  object-fit: contain; /* Ensures the entire image fits inside */
-  margin: 5px;         /* Adds spacing between images */
-}
-
+    .balloons {
+      width: 100px;
+      animation: float 4s infinite ease-in-out;
+    }
     @keyframes float {
       0% { transform: translateY(0); }
       50% { transform: translateY(-30px); }
@@ -118,49 +115,26 @@
   </div>
 
   <div class="photo-gallery" id="photos">
-    <img src="1.jpg" alt="Pic 2">
-    <img src="2.jpg" alt="Pic 3">
-    <img src="3.jpg" alt="Pic 4">
-    <img src="4.jpg" alt="Pic 6">
-    <img src="5.jpg" alt="Pic 5">
-    <img src="6.jpg" alt="Pic 1">
+    <img src="1.jpeg" alt="Pic 2">
+    <img src="2.jpeg" alt="Pic 3">
+    <img src="3.jpeg" alt="Pic 4">
+    <img src="4.jpeg" alt="Pic 6">
+    <img src="5.jpeg" alt="Pic 5">
+    <img src="6.jpeg" alt="Pic 1">
 
   </div>
 
-  <form id="birthday-form">
-  <h2 style="color: #4b0082;">Send Your Message to Me 💌</h2>
-  <textarea name="message" placeholder="Write your message here..." required></textarea><br>
-  <button class="submit-btn" type="submit">Send Message</button>
-</form>
-
-<!-- Hidden audio -->
-<audio id="send-audio">
-  <source src="song.mp3" type="audio/mpeg">
-  Your browser does not support the audio element.
-</audio>
-
+  <form action="https://formspree.io/f/mldbbeej" method="POST">
+    <h2 style="color: #4b0082;">Send Your Message to Me 💌</h2>
+    <textarea name="message" placeholder="Write your message here..." required></textarea><br>
+    <button class="submit-btn" type="submit">Send Message</button>
+  </form>
 
   <script>
     function startSurprise() {
       document.getElementById('surprise-message').style.display = 'block';
       document.getElementById('photos').style.display = 'flex';
     }
-    <script>
-  document.getElementById("birthday-form").addEventListener("submit", function(event) {
-    event.preventDefault(); // stop default submission
-
-    const audio = document.getElementById("send-audio");
-
-    // Play the audio
-    audio.play();
-
-    // Submit the form after audio ends
-    audio.onended = function() {
-      event.target.submit();
-    };
-  });
-</script>
-
   </script>
 </body>
 </html>
